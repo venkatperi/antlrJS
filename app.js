@@ -1,12 +1,14 @@
 import './css/tree.css';
 import './css/style.css';
-const parse = require( './lib/parse' );
+
+const name = 'calculator';
+const startRule = 'equation';
+
+const parse = require( './lib/parse' )( name, startRule );
 const tree = require( './lib/tree' );
 const _ = require( 'lodash' );
 const $ = require( 'jquery' );
 const theEditor = require( './lib/editor' );
-
-const tokenRegex = /^\[\w+ (\d+):(\d+)\].*$/;
 
 function update() {
   theEditor.then( function( editor ) {
@@ -40,14 +42,15 @@ function update() {
     let t = tree( res.obj, '#tree' );
 
     t.on( 'node.click', function( e, node ) {
-      let matches = node.text.match( tokenRegex );
-      if ( matches )
-        theEditor.then( ( e ) => e.gotoLine( matches[ 1 ], matches[ 2 ] ) );
+      if ( node._row )
+        theEditor.then( ( e ) => e.gotoLine( node._row, node._column ) );
     } );
+
   } );
 }
 
 $( function() {
+  $( 'h1' ).text( $( 'h1' ).text() + ' - ' + name );
   theEditor.then( function( e ) { e.focus() } );
   $( '#convert' ).click( update );
 } );
