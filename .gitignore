@@ -7,3 +7,4 @@ dist/
 .coveralls.yml
 coverage/
 *.lock
+scripts/
