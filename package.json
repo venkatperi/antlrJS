@@ -5,11 +5,22 @@
   "main": "index.js",
   "dependencies": {
     "antlr4": "^4.7.0",
-    "get-stdin": "^5.0.1"
+    "brace": "^0.10.0",
+    "get-stdin": "^5.0.1",
+    "inspire-tree": "^2.0.4",
+    "inspire-tree-dom": "^2.0.1",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "webpack": "^3.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack-dev-server": "^2.6.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "serve": "webpack-dev-server --disable-host-check --public www.vperi.com"
   },
   "author": "",
   "license": "ISC"

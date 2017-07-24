@@ -1,0 +1,61 @@
+body {
+  font-family: "Inconsolata", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #404040;
+}
+
+#source,
+#treeContainer {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+
+#source {
+  border-right: solid 1px #e0e0e0;
+  box-sizing: border-box;
+}
+
+#treeContainer {
+  background-color: #FDF6E3;
+}
+
+.search {
+  display: none;
+  visibility: hidden;
+}
+
+#tree {
+  margin: 10px;
+}
+
+.inspire-tree .icon::before {
+  width: 12px;
+  height: 12px;
+  top: 6px;
+}
+
+.inspire-tree .title {
+  padding-left: 24px;
+  height: inherit;
+  line-height: inherit;
+  white-space: inherit;
+}
+
+.inspire-tree .title::before {
+  left: -3px;
+}
+
+.icon-folder,
+.icon-folder-open {
+  font-weight: 600;
+  color: #808080;
+}
+
+.icon-file-empty {
+  color: #202020;
+}
+
+.inspire-tree .leaf:last-child {
+  background-position: 11px -6px;
+}
