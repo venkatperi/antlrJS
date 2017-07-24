@@ -1,10 +1,13 @@
 const webpack = require( 'webpack' );
+const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const ExtractTextPlugin = require( "extract-text-webpack-plugin" );
+const path = require('path');
 
 module.exports = {
   entry: './app.js',
   output: {
-    filename: 'dist/bundle.js'
+    path: path.resolve( __dirname, 'dist' ),
+    filename: 'assets/bundle.js'
   },
   node: {
     module: "empty",
@@ -21,7 +24,10 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery'
     } ),
-    new ExtractTextPlugin( "dist/styles.css" ),
+    new ExtractTextPlugin( "assets/styles.css" ),
+    new CopyWebpackPlugin( [
+      { from: './index.html' }
+    ] )
   ],
   module: {
     rules: [ {
