@@ -9,7 +9,7 @@ const theEditor = require( './lib/editor' );
 const tokenRegex = /^\[\w+ (\d+):(\d+)\].*$/;
 
 function update() {
-  theEditor.then( ( editor ) => {
+  theEditor.then( function( editor ) {
     var input = editor.getValue();
 
     $( '#annotations' ).remove();
@@ -24,7 +24,7 @@ function update() {
       "<span class='text'>message</span>" +
       "</div>" );
 
-    res.annotations.forEach( ( a ) => {
+    res.annotations.forEach( function( a ) {
       $( '#annotations' ).append(
         "<div class='item'><span class='type'>" + a.type + "</span>" +
         "<span class='row'>" + ( a.row + 1 ) + "</span>" +
@@ -39,15 +39,15 @@ function update() {
     $( '#treeContainer' ).append( '<div id="tree"></div>' );
     let t = tree( res.obj, '#tree' );
 
-    t.on( 'node.click', ( e, node ) => {
+    t.on( 'node.click', function( e, node ) {
       let matches = node.text.match( tokenRegex );
       if ( matches )
-        theEditor.then( ( e ) => e.gotoLine( matches[ 1 ], matches[2] ) );
+        theEditor.then( ( e ) => e.gotoLine( matches[ 1 ], matches[ 2 ] ) );
     } );
   } );
 }
 
 $( function() {
-  theEditor.then( ( e ) => e.focus() );
+  theEditor.then( function( e ) { e.focus() } );
   $( '#convert' ).click( update );
 } );
