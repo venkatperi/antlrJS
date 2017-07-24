@@ -1,4 +1,5 @@
 const webpack = require( 'webpack' );
+const ExtractTextPlugin = require( "extract-text-webpack-plugin" );
 
 module.exports = {
   entry: './app.js',
@@ -19,6 +20,22 @@ module.exports = {
     new webpack.ProvidePlugin( {
       $: 'jquery',
       jQuery: 'jquery'
-    } )
-  ]
+    } ),
+    new ExtractTextPlugin( "dist/styles.css" ),
+  ],
+  module: {
+    rules: [ {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract( {
+          fallback: "style-loader",
+          use: "css-loader"
+        } )
+      },
+      {
+        test: /\.(png|gif|jpg|svg)$/,
+        //include: 'images',
+        use: 'url-loader?limit=20480&name=assets/[name]-[hash].[ext]',
+      },
+    ]
+  }
 }
