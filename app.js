@@ -1,8 +1,8 @@
 import './css/tree.css';
 import './css/style.css';
 
-const name = 'calculator';
-const startRule = 'equation';
+const name = GRAMMAR_NAME;
+const startRule = START_RULE;
 
 const parse = require( './lib/parse' )( name, startRule );
 const tree = require( './lib/tree' );
