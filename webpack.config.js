@@ -18,7 +18,7 @@ module.exports = function( env ) {
       index: './index.html'
     },
     output: {
-      path: path.resolve( __dirname, `dist/${env.grammarName}` ),
+      path: path.resolve( __dirname, `docs/${env.grammarName}` ),
       filename: 'assets/[name].bundle.js',
     },
     node: {

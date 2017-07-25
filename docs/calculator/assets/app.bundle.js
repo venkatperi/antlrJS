@@ -12,8 +12,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-const name = "JSON";
-const startRule = "json";
+const name = "calculator";
+const startRule = "equation";
 
 const parse = __webpack_require__( 162 )( name, startRule );
 const tree = __webpack_require__( 173 );
