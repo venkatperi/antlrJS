@@ -3,10 +3,11 @@ const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const ExtractTextPlugin = require( "extract-text-webpack-plugin" );
 const WebpackShellPlugin = require( 'webpack-shell-plugin' );
 const path = require( 'path' );
-const merge = require( 'webpack-merge' );
+//const merge = require( 'webpack-merge' );
 const StringReplacePlugin = require( "string-replace-webpack-plugin" );
+const UglifyJSPlugin = require( 'uglifyjs-webpack-plugin' )
 
-const parts = require( './webpack.parts' );
+//const parts = require( './webpack.parts' );
 
 module.exports = function( env ) {
   return {
@@ -41,12 +42,18 @@ module.exports = function( env ) {
         name: "vendor",
         minChunks: Infinity,
       } ),
-      //new WebpackShellPlugin( { onBuildStart: "" } ),
       new webpack.DefinePlugin( {
         GRAMMAR_NAME: JSON.stringify( env.grammarName ),
         START_RULE: JSON.stringify( env.startRule )
       } ),
-      new StringReplacePlugin()
+      new StringReplacePlugin(),
+      /*new UglifyJSPlugin( {
+        exclude: /\app/,
+        parallel: {
+          cache: true,
+          workers: 2 // for e.g
+        }
+      } )*/
     ],
 
     module: {
@@ -81,4 +88,3 @@ module.exports = function( env ) {
     }
   }
 }
-

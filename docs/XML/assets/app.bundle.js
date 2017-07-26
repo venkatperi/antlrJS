@@ -12,8 +12,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-const name = "calculator";
-const startRule = "equation";
+const name = "XML";
+const startRule = "document";
 
 const parse = __webpack_require__( 162 )( name, startRule );
 const tree = __webpack_require__( 170 );

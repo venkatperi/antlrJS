@@ -1,11 +1,12 @@
 #!/bin/bash
 ANTLR="/usr/bin/java -Xmx500M org.antlr.v4.Tool"
-GRAMMAR=$1
-STARTRULE=$2
+DIR=$1
+GRAMMAR=$2
+STARTRULE=$3
 
 mkdir -p lib/grammars/$GRAMMAR
-cd ../grammars-v4
-$ANTLR -Dlanguage=JavaScript -o ../antlrJs/lib/grammars ${GRAMMAR,,}/*.g4
-cd ../antlrJs
+cd ../grammars-v4/${DIR}
+$ANTLR -Dlanguage=JavaScript -o ../../antlrJs/lib/grammars/${GRAMMAR} *.g4
+cd ../../antlrJs
 webpack --env.grammarName $GRAMMAR --env.startRule $STARTRULE
 
