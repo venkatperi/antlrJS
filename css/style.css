@@ -18,17 +18,31 @@ h1 {
   border-top: solid 1px #e0e0e0;
 }
 
+#sourceHeader,
 #source,
+#treeHeader,
 #treeContainer {
   width: 50%;
-  height: 80%;
   float: left;
   position: relative;
 }
 
+#sourceHeader,
 #source {
   border-right: solid 1px #e0e0e0;
   box-sizing: border-box;
+}
+
+#sourceHeader, #treeHeader {
+  color: #808080;
+	font-size: 20px;
+	line-height: 30px;
+	background-color: #f0f0f0;
+	text-align: center;
+}
+
+#source {
+  height: 80%;
 }
 
 #convert {
@@ -95,6 +109,7 @@ h1 {
 }
 
 #treeContainer {
+  height: 80%;
   overflow: auto;
 }
 

@@ -5,13 +5,17 @@
   "main": "index.js",
   "dependencies": {
     "antlr4": "^4.7.0",
+    "arrayp": "^1.1.0",
     "brace": "^0.10.0",
     "get-stdin": "^5.0.1",
     "inspire-tree": "^2.0.4",
     "inspire-tree-dom": "^2.0.1",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
-    "webpack": "^3.3.0"
+    "rimraf": "^2.6.1",
+    "unique-string": "^1.0.0",
+    "webpack": "^3.4.1",
+    "yargs": "^8.0.2"
   },
   "devDependencies": {
     "coffee-script": "^1.12.7",
