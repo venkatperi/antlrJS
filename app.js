@@ -1,10 +1,7 @@
 import './css/tree.css';
 import './css/style.css';
 
-const name = GRAMMAR_NAME;
-const startRule = START_RULE;
-
-const parse = require( './lib/parse' )( name, startRule );
+const parse = require( './lib/parse' );
 const tree = require( './lib/tree' );
 const _ = require( 'lodash' );
 const $ = require( 'jquery' );
@@ -50,7 +47,7 @@ function update() {
 }
 
 $( function() {
-  $( 'h1' ).text( $( 'h1' ).text() + ' - ' + name );
+  $( 'h1' ).text( $( 'h1' ).text() + ' - ' + GRAMMAR_NAME );
   theEditor.then( function( e ) { e.focus() } );
   $( '#convert' ).click( update );
 } );
